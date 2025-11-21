@@ -3,10 +3,23 @@ import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 export default function AboutPage() {
+  function sair() {
+    auth().signOut();
+  }
   return (
     <View style={estilos.bg}>
       <Text style={estilos.mainText}>Sobre mim</Text>
-      <View style={estilos.main}></View>
+      <View style={estilos.main}>
+        <Text style={[estilos.btnText, { fontWeight: 'bold' }]}>
+          Seu e-mail
+        </Text>
+        <Text style={estilos.btnText}>{auth().currentUser.email}</Text>
+        <TouchableOpacity onPress={sair}>
+          <View style={estilos.btn2}>
+            <Text style={estilos.btnText2}>Sair</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -24,7 +37,7 @@ const estilos = StyleSheet.create({
     width: '100%',
     borderRadius: 30,
     gap: 10,
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
   },
   mainText: {
     fontSize: 32,
@@ -62,6 +75,7 @@ const estilos = StyleSheet.create({
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'white',
   },
   btnText2: {
     color: '#1423f0ff',
