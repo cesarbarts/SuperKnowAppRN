@@ -1,5 +1,5 @@
 import React from 'react';
-import FilmePage from './Filme';
+import FilmePage from './Filmes';
 import AboutPage from './About';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@react-native-vector-icons/feather';
