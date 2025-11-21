@@ -8,10 +8,12 @@ import {
   FlatList,
   Modal,
   Image,
+  ScrollView,
 } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import api from '../src/api';
 import Card from './CardFilme';
+import Feather from '@react-native-vector-icons/feather';
 
 export default function FilmePage() {
   const [filmes, setFilmes] = useState({});
@@ -61,13 +63,28 @@ export default function FilmePage() {
                 <Text style={estilos.btnText}>Fechar</Text>
               </View>
             </TouchableOpacity>
-            <Text style={[estilos.mainText, estilos.textBlue]}>
-              {filmeSelec.title}
-            </Text>
-            <Image
-              style={estilos.imagem}
-              source={{ uri: filmeSelec.cover_url }}
-            ></Image>
+            <ScrollView style={estilos.rolavel}>
+              <Text style={[estilos.mainText, estilos.textBlue]}>
+                {filmeSelec.title} ({filmeSelec?.release_date?.substr(0, 4)})
+              </Text>
+              <Image
+                style={estilos.imagem}
+                source={{ uri: filmeSelec.cover_url }}
+              ></Image>
+              <Text style={estilos.sinopse}>{filmeSelec.overview}</Text>
+              <View style={estilos.extra}>
+                <View style={estilos.extraBtn}>
+                  <Feather color={'#fff'} size={20} name="clock"></Feather>
+                  <Text style={estilos.extrabtnText}>
+                    {filmeSelec.duration} min
+                  </Text>
+                </View>
+                <View style={estilos.extraBtn}>
+                  <Feather color={'#fff'} size={20} name="hash"></Feather>
+                  <Text style={estilos.extrabtnText}>{filmeSelec.saga}</Text>
+                </View>
+              </View>
+            </ScrollView>
           </View>
         </View>
       </Modal>
@@ -84,6 +101,7 @@ const estilos = StyleSheet.create({
   filmList: {
     flex: 1,
     paddingHorizontal: 30,
+    borderRadius: 10,
   },
   mainText: {
     paddingTop: 70,
@@ -94,8 +112,9 @@ const estilos = StyleSheet.create({
   },
   textBlue: {
     color: '#1423f0ff',
-    fontSize: 20,
+    fontSize: 22,
     textAlign: 'center',
+    paddingTop: -10
   },
   modal: {
     flex: 1,
@@ -106,14 +125,15 @@ const estilos = StyleSheet.create({
   modalField: {
     flex: 0.8,
     backgroundColor: 'white',
-    width: '100%',
-    padding: 40,
+    width: '95%',
+    padding: 20,
     borderRadius: 20,
   },
   imagem: {
     flex: 1,
     width: '100%',
-    borderRadius: 10
+    height: '500',
+    borderRadius: 10,
   },
   btn: {
     backgroundColor: '#1423f0ff',
@@ -126,5 +146,35 @@ const estilos = StyleSheet.create({
   btnText: {
     color: '#fff',
     fontSize: 16,
+  },
+  rolavel: {
+    borderRadius: 10,
+    marginTop: 20,
+  },
+  sinopse: {
+    textAlign: 'justify',
+    fontSize: 16,
+    marginVertical: 20,
+  },
+  extra: {
+    flex: 1,
+    gap: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    height: 60,
+    marginBottom: 20,
+  },
+  extraBtn: {
+    backgroundColor: '#000000ff',
+    flex: 0.5,
+    borderRadius: 10,
+    gap: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  extrabtnText: {
+    color: '#fff',
+    fontWeight: '600',
+    fontSize: 14,
   },
 });
