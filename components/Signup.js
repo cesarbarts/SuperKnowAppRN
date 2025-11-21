@@ -15,7 +15,7 @@ export default function SignupPage() {
 
   function login() {
     if (email === '' || password === '') {
-      return Alert.alert('erro!', 'e-mail e senha precisam ser preenchidos');
+      return Alert.alert('Erro', 'E-mail e senha precisam ser preenchidos');
     }
 
     auth()
@@ -23,16 +23,16 @@ export default function SignupPage() {
       .then(() => {
         setEmail('')
         setPassword('')
-        return Alert.alert('ok!', 'saudações');
+        return Alert.alert('Sucesso', 'Saudações ao SuperKnow');
       })
       .catch(error => {
-        return Alert.alert('erro!', error.code);
+        return Alert.alert('Erro', error.code);
       });
   }
 
   function register() {
     if (email === '' || password === '') {
-      return Alert.alert('erro!', 'e-mail e senha precisam ser preenchidos');
+      return Alert.alert('Erro', 'E-mail e senha precisam ser preenchidos');
     }
 
     auth()
@@ -42,15 +42,15 @@ export default function SignupPage() {
       })
       .catch(error => {
         if (error.code === 'auth/invalid-email') {
-          return Alert.alert('erro!', 'e-mail inválido');
+          return Alert.alert('Erro', 'E-mail inválido');
         }
         if (error.code === 'auth/email-already-in-use') {
-          return Alert.alert('erro!', 'e-mail já utilizado');
+          return Alert.alert('Erro', 'E-mail já utilizado');
         }
         if (error.code === 'auth/weak-password') {
-          return Alert.alert('erro!', 'senha fraca');
+          return Alert.alert('Erro', 'Senha fraca');
         }
-        return Alert.alert('erro!', error.code);
+        return Alert.alert('Erro', error.code);
       });
   }
 
