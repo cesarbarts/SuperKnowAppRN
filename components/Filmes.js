@@ -114,7 +114,7 @@ const estilos = StyleSheet.create({
     color: '#1423f0ff',
     fontSize: 22,
     textAlign: 'center',
-    paddingTop: -10
+    paddingTop: -10,
   },
   modal: {
     flex: 1,

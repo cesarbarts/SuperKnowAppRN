@@ -49,14 +49,15 @@ const estilos = StyleSheet.create({
     flex: 1,
     backgroundColor: '#1423f0ff',
     justifyContent: 'flex-end',
+    alignItems: "center"
   },
   main: {
     paddingTop: 100,
     backgroundColor: '#fff',
     padding: 30,
     height: '80%',
-    width: '100%',
-    borderRadius: 30,
+    width: '95%',
+    borderRadius: 20,
     gap: 10,
     justifyContent: 'space-between',
   },
