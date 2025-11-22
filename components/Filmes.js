@@ -74,13 +74,13 @@ export default function FilmePage() {
               <Text style={estilos.sinopse}>{filmeSelec.overview}</Text>
               <View style={estilos.extra}>
                 <View style={estilos.extraBtn}>
-                  <Feather color={'#fff'} size={20} name="clock"></Feather>
+                  <Feather color={'#2a1c14'} size={20} name="clock"></Feather>
                   <Text style={estilos.extrabtnText}>
                     {filmeSelec.duration} min
                   </Text>
                 </View>
                 <View style={estilos.extraBtn}>
-                  <Feather color={'#fff'} size={20} name="hash"></Feather>
+                  <Feather color={'#2a1c14'} size={20} name="hash"></Feather>
                   <Text style={estilos.extrabtnText}>{filmeSelec.saga}</Text>
                 </View>
               </View>
@@ -95,7 +95,7 @@ export default function FilmePage() {
 const estilos = StyleSheet.create({
   bg: {
     flex: 1,
-    backgroundColor: '#1423f0ff',
+    backgroundColor: '#2a1c14',
     justifyContent: 'flex-start',
   },
   filmList: {
@@ -111,7 +111,7 @@ const estilos = StyleSheet.create({
     color: 'white',
   },
   textBlue: {
-    color: '#1423f0ff',
+    color: '#2a1c14',
     fontSize: 22,
     textAlign: 'center',
     paddingTop: -10,
@@ -136,7 +136,7 @@ const estilos = StyleSheet.create({
     borderRadius: 10,
   },
   btn: {
-    backgroundColor: '#1423f0ff',
+    backgroundColor: '#2a1c14',
     padding: 10,
     borderRadius: 10,
     height: 50,
@@ -165,7 +165,7 @@ const estilos = StyleSheet.create({
     marginBottom: 20,
   },
   extraBtn: {
-    backgroundColor: '#000000ff',
+    backgroundColor: '#ffa50c',
     flex: 0.5,
     borderRadius: 10,
     gap: 5,
@@ -173,7 +173,7 @@ const estilos = StyleSheet.create({
     justifyContent: 'center',
   },
   extrabtnText: {
-    color: '#fff',
+    color: '#2a1c14',
     fontWeight: '600',
     fontSize: 14,
   },

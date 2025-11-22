@@ -24,7 +24,7 @@ const estilos = StyleSheet.create({
     cardFilmeTitle: {
         fontSize: 20,
         paddingVertical: 10,
-        color: "#1423f0ff"
+        color: "#2a1c14"
     },
     imagem: {
         flex: 1,

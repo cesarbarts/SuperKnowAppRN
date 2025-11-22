@@ -10,10 +10,10 @@ function TabsNavigator() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#1423f0ff',
+          backgroundColor: '#2a1c14',
           borderTopColor: '#00000000',
         },
-        tabBarActiveTintColor: '#fbff00ff',
+        tabBarActiveTintColor: '#ffa50c',
         tabBarInactiveTintColor: '#fff',
       }}
     >

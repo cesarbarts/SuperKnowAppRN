@@ -27,7 +27,7 @@ export default function AboutPage() {
 const estilos = StyleSheet.create({
   bg: {
     flex: 1,
-    backgroundColor: '#1423f0ff',
+    backgroundColor: '#2a1c14',
     justifyContent: 'flex-end',
   },
   main: {
@@ -58,7 +58,7 @@ const estilos = StyleSheet.create({
   },
 
   btn: {
-    backgroundColor: '#1423f0ff',
+    backgroundColor: '#2a1c14',
     padding: 10,
     borderRadius: 10,
     height: 50,
@@ -78,7 +78,7 @@ const estilos = StyleSheet.create({
     backgroundColor: 'white',
   },
   btnText2: {
-    color: '#1423f0ff',
+    color: '#2a1c14',
     fontSize: 16,
   },
 });

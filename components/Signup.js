@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -6,10 +6,13 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  Image,
 } from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 export default function SignupPage() {
+  const inputSenha = useRef(null);
+  const btnEnviar = useRef(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -21,8 +24,8 @@ export default function SignupPage() {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        setEmail('')
-        setPassword('')
+        setEmail('');
+        setPassword('');
         return Alert.alert('Sucesso', 'Saudações ao SuperKnow');
       })
       .catch(error => {
@@ -38,7 +41,7 @@ export default function SignupPage() {
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(userCredentials => {
-        login()
+        login();
       })
       .catch(error => {
         if (error.code === 'auth/invalid-email') {
@@ -53,18 +56,24 @@ export default function SignupPage() {
         return Alert.alert('Erro', error.code);
       });
   }
-
   return (
     <View style={estilos.bg}>
-      <Text style={estilos.mainText}>Saudações ao SuperKnow</Text>
+      <Image
+        style={{ width: 300, height: 100 }}
+        source={require('../src/superknow_logo.png')}
+      ></Image>
+      <Text style={estilos.promo}>
+        TUDO sobre seus filmes favoritos de super-herói
+      </Text>
       <View style={estilos.main}>
         <Text style={estilos.labelText}>E-mail</Text>
         <TextInput
           value={email}
           onChangeText={setEmail}
           autoCapitalize="none"
-          keyboardType="email"
+          keyboardType="email-address"
           style={estilos.input}
+          onSubmitEditing={() => inputSenha.current.focus()}
         ></TextInput>
         <Text style={estilos.labelText}>Senha</Text>
         <TextInput
@@ -72,8 +81,10 @@ export default function SignupPage() {
           onChangeText={setPassword}
           secureTextEntry
           style={estilos.input}
+          ref={inputSenha}
+          onSubmitEditing={() => login()}
         ></TextInput>
-        <TouchableOpacity onPress={login}>
+        <TouchableOpacity ref={btnEnviar} onPress={login}>
           <View style={estilos.btn}>
             <Text style={estilos.btnText}>Entrar</Text>
           </View>
@@ -91,22 +102,21 @@ export default function SignupPage() {
 const estilos = StyleSheet.create({
   bg: {
     flex: 1,
-    backgroundColor: '#1423f0ff',
+    backgroundColor: '#2a1c14',
     justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   main: {
     paddingTop: 100,
     backgroundColor: '#fff',
     padding: 30,
-    height: '60%',
-    width: '100%',
-    borderRadius: 30,
+    height: '70%',
+    width: '95%',
+    borderRadius: 20,
     gap: 10,
   },
   mainText: {
     fontSize: 32,
-    marginBottom: 10,
-    padding: 30,
     color: 'white',
   },
   labelText: {
@@ -120,7 +130,7 @@ const estilos = StyleSheet.create({
   },
 
   btn: {
-    backgroundColor: '#1423f0ff',
+    backgroundColor: '#2a1c14',
     padding: 10,
     borderRadius: 10,
     height: 50,
@@ -139,7 +149,14 @@ const estilos = StyleSheet.create({
     justifyContent: 'center',
   },
   btnText2: {
-    color: '#1423f0ff',
+    color: '#2a1c14',
     fontSize: 16,
+  },
+  promo: {
+    color: '#fff',
+    fontSize: 12,
+    marginBottom: 30,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
   },
 });

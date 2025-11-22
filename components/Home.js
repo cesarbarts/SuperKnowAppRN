@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Button, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,7 +11,9 @@ export default function HomePage() {
   const navegacao = useNavigation()
   return (
     <View style={estilos.bg}>
-      <Text style={estilos.mainText}>SuperKnow</Text>
+      <View style={estilos.imageSpace}>
+        <Image style={{width: 300, height: 100}} source={require("../src/superknow_logo.png")}></Image>
+      </View>
       <View style={estilos.main}>
         <View>
           <Text style={estilos.labelText}>
@@ -47,15 +49,19 @@ export default function HomePage() {
 const estilos = StyleSheet.create({
   bg: {
     flex: 1,
-    backgroundColor: '#1423f0ff',
-    justifyContent: 'flex-end',
-    alignItems: "center"
+    backgroundColor: '#2a1c14',
+    justifyContent: 'align-items-center',
+    alignItems: "center",
+  },
+  imageSpace: {
+    flex: 0.3,
+    alignItems: "center",
+    justifyContent: "center"
   },
   main: {
-    paddingTop: 100,
+    flex: 0.7,
     backgroundColor: '#fff',
     padding: 30,
-    height: '80%',
     width: '95%',
     borderRadius: 20,
     gap: 10,
@@ -71,15 +77,9 @@ const estilos = StyleSheet.create({
     fontSize: 16,
     marginBottom: 20
   },
-  input: {
-    backgroundColor: '#e8e8e8ff',
-    padding: 10,
-    borderRadius: 10,
-    height: 50,
-  },
 
   btn: {
-    backgroundColor: '#1423f0ff',
+    backgroundColor: '#2a1c14',
     padding: 10,
     borderRadius: 10,
     height: 50,
@@ -98,7 +98,7 @@ const estilos = StyleSheet.create({
     justifyContent: 'center',
   },
   btnText2: {
-    color: '#1423f0ff',
+    color: '#2a1c14',
     fontSize: 16,
   },
 });
