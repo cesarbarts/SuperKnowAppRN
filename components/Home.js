@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,11 +15,17 @@ export default function HomePage() {
     auth().signOut();
   }
 
-  const navegacao = useNavigation()
+  const navegacao = useNavigation();
   return (
     <View style={estilos.bg}>
       <View style={estilos.imageSpace}>
-        <Image style={{width: 300, height: 100}} source={require("../src/superknow_logo.png")}></Image>
+        <Image
+          style={{ width: 300, height: 100 }}
+          source={require('../src/superknow_logo.png')}
+        ></Image>
+        <Text style={estilos.promo}>
+          TUDO sobre seus filmes favoritos de super-herói
+        </Text>
       </View>
       <View style={estilos.main}>
         <View>
@@ -25,7 +38,8 @@ export default function HomePage() {
             júnior de React Native.
           </Text>
           <Text style={estilos.labelText}>
-            Habilidades exploradas: Autenticação com Firebase, consumo de API, navegação, modais.
+            Habilidades exploradas: Autenticação com Firebase, consumo de API,
+            navegação, modais.
           </Text>
         </View>
 
@@ -49,37 +63,44 @@ export default function HomePage() {
 const estilos = StyleSheet.create({
   bg: {
     flex: 1,
-    backgroundColor: '#2a1c14',
-    justifyContent: 'align-items-center',
-    alignItems: "center",
-  },
-  imageSpace: {
-    flex: 0.3,
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: '#060313',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   main: {
-    flex: 0.7,
-    backgroundColor: '#fff',
+    paddingTop: 100,
+    backgroundColor: '#0c0723ff',
     padding: 30,
+    height: '70%',
     width: '95%',
     borderRadius: 20,
     gap: 10,
-    justifyContent: 'space-between',
+    borderWidth: 0.5,
+    borderColor: '#edf13100',
+    borderTopColor: '#edf131',
   },
   mainText: {
     fontSize: 32,
-    marginBottom: 10,
-    padding: 30,
     color: 'white',
   },
   labelText: {
     fontSize: 16,
-    marginBottom: 20
+    color: 'white',
+    marginBottom: 30,
+  },
+  input: {
+    backgroundColor: '#100a2fff',
+    padding: 10,
+    borderRadius: 10,
+    height: 50,
+    color: 'white',
+    fontWeight: 'bold',
+    borderWidth: 0.5,
+    borderTopColor: '#edf131',
   },
 
   btn: {
-    backgroundColor: '#2a1c14',
+    backgroundColor: '#edf131',
     padding: 10,
     borderRadius: 10,
     height: 50,
@@ -87,7 +108,7 @@ const estilos = StyleSheet.create({
     justifyContent: 'center',
   },
   btnText: {
-    color: '#fff',
+    color: '#060313',
     fontSize: 16,
   },
   btn2: {
@@ -98,7 +119,14 @@ const estilos = StyleSheet.create({
     justifyContent: 'center',
   },
   btnText2: {
-    color: '#2a1c14',
+    color: '#edf131',
     fontSize: 16,
+  },
+  promo: {
+    color: '#fff',
+    fontSize: 12,
+    marginBottom: 30,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
   },
 });

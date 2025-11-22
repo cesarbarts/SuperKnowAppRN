@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Alert, StyleSheet, TouchableOpacity } from 'react-native';
 import auth from '@react-native-firebase/auth';
 
 export default function AboutPage() {
   function sair() {
     auth().signOut();
+  }
+  function avisoSair() {
+    return Alert.alert('Aviso', 'Tem certeza de que quer sair de sua conta?',[{text: "Não"}, {text: "Sim", onPress: ()=>{
+        sair()
+    }}])
   }
   return (
     <View style={estilos.bg}>
@@ -14,7 +19,7 @@ export default function AboutPage() {
           Seu e-mail
         </Text>
         <Text style={estilos.btnText}>{auth().currentUser.email}</Text>
-        <TouchableOpacity onPress={sair}>
+        <TouchableOpacity onPress={avisoSair}>
           <View style={estilos.btn2}>
             <Text style={estilos.btnText2}>Sair</Text>
           </View>
@@ -27,7 +32,7 @@ export default function AboutPage() {
 const estilos = StyleSheet.create({
   bg: {
     flex: 1,
-    backgroundColor: '#2a1c14',
+    backgroundColor: '#060313',
     justifyContent: 'flex-end',
   },
   main: {
@@ -44,7 +49,7 @@ const estilos = StyleSheet.create({
     marginBottom: 10,
     paddingHorizontal: 30,
 
-    color: 'white',
+    color: '#faff39',
   },
   labelText: {
     fontSize: 16,
@@ -58,7 +63,7 @@ const estilos = StyleSheet.create({
   },
 
   btn: {
-    backgroundColor: '#2a1c14',
+    backgroundColor: '#060313',
     padding: 10,
     borderRadius: 10,
     height: 50,
@@ -75,10 +80,10 @@ const estilos = StyleSheet.create({
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#faff39',
   },
   btnText2: {
-    color: '#2a1c14',
+    color: '#060313',
     fontSize: 16,
   },
 });
