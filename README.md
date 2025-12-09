@@ -1,97 +1,98 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# SuperKnow
 
-# Getting Started
+O **SuperKnow** é um aplicativo desenvolvido em **React Native** criado para fãs do Universo Cinematográfico Marvel (MCU). O app consulta uma API externa para trazer informações detalhadas sobre os filmes, como data de lançamento, sinopse, duração e saga.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+O design foi totalmente customizado, inspirado na estética visual de *Vingadores: Ultimato*, utilizando um tema escuro com detalhes em dourado para imersão do usuário.
 
-## Step 1: Start Metro
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/1168f204-dbdb-4fda-b69f-6ebc8e3927bf" width="300" alt="Demonstração do SuperKnow" />
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+  
+</div>
+<br/>
+* O fluxo de navegação e arquitetura do app pode ser visualizado abaixo:
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+[![](https://mermaid.ink/img/pako:eNqdVM1S2zAQfhWNGGZgJkAckz8f2kkDtHQIZZpwqcNBidaxBltKJZkCcQ59lE4PPfUp8mJdyW4KDKf6IGvX3_ftj9Za0bniQCOaZOrbPGXaksnJVBJ8xhatvb1zufk9F4oMlsv9fXJw8IYMU5jfDgqbrq5Nsfmh8eOFWjCu3q4rZrXu7pKzrLhXhANBNEgr5mzza_NTVd-3Mk60vER_6XSEjCeQMcfy1tGQcWasVjcVzTs95UxomDHj1dPyn96LJDbfNbAqQ_Za5LHIS_JB5RC7hVxplSssWLKsjujdDvlOWcySDBWWIgumSzJhMxOPQBbkXCaAndA3T6ObYrbQbJk63PjBWMhJfMnuYFH1gaA9wApqjnucoG_ySN0JMPGFMNb34kxkObyKxIQTkUF8BRrf5IiM1UxDjQTJX55JIavqBGccTOWvovkiB_dCGfL-dFKSwdV5vDcaXrvNfi2IWw_7OP50WVY8l2P8GSNhAx4ZGTLNzbM2bFGeOVFfCyBSeaCT4CyL_RqRE7AsSzETrqqKn-nUlXoVPE9V2HpiXpR4aqzIMJUnw2bsQ1YPFEGNLNpJWJKE_cZcZUpHO81OMwzChpuzW4h2wjB8yvPZ_QfP_0I1r0bWvCRJtiTc0wZdaMFpZHUBDZqDzpkz6crJTalNIYcpjXDLmb6d0qlcI2fJ5Bel8r80rYpFSqOEZQatYsmZhRPBcATzrVf7cxqqQloaBZ2-F6HRit7TqBW0D3v9oHfcOw46aLQb9AFBrcOg2-keB-1OpxV2W-11gz76qM3DfrPXb3Z7YbMbtINuP2xQ4MIqPaouFX-3rP8ADz9pMw?type=png)](https://mermaid.live/edit#pako:eNqdVM1S2zAQfhWNGGZgJkAckz8f2kkDtHQIZZpwqcNBidaxBltKJZkCcQ59lE4PPfUp8mJdyW4KDKf6IGvX3_ftj9Za0bniQCOaZOrbPGXaksnJVBJ8xhatvb1zufk9F4oMlsv9fXJw8IYMU5jfDgqbrq5Nsfmh8eOFWjCu3q4rZrXu7pKzrLhXhANBNEgr5mzza_NTVd-3Mk60vER_6XSEjCeQMcfy1tGQcWasVjcVzTs95UxomDHj1dPyn96LJDbfNbAqQ_Za5LHIS_JB5RC7hVxplSssWLKsjujdDvlOWcySDBWWIgumSzJhMxOPQBbkXCaAndA3T6ObYrbQbJk63PjBWMhJfMnuYFH1gaA9wApqjnucoG_ySN0JMPGFMNb34kxkObyKxIQTkUF8BRrf5IiM1UxDjQTJX55JIavqBGccTOWvovkiB_dCGfL-dFKSwdV5vDcaXrvNfi2IWw_7OP50WVY8l2P8GSNhAx4ZGTLNzbM2bFGeOVFfCyBSeaCT4CyL_RqRE7AsSzETrqqKn-nUlXoVPE9V2HpiXpR4aqzIMJUnw2bsQ1YPFEGNLNpJWJKE_cZcZUpHO81OMwzChpuzW4h2wjB8yvPZ_QfP_0I1r0bWvCRJtiTc0wZdaMFpZHUBDZqDzpkz6crJTalNIYcpjXDLmb6d0qlcI2fJ5Bel8r80rYpFSqOEZQatYsmZhRPBcATzrVf7cxqqQloaBZ2-F6HRit7TqBW0D3v9oHfcOw46aLQb9AFBrcOg2-keB-1OpxV2W-11gz76qM3DfrPXb3Z7YbMbtINuP2xQ4MIqPaouFX-3rP8ADz9pMw)
 
-```sh
-# Using npm
-npm start
+### Tecnologias Utilizadas
 
-# OR using Yarn
-yarn start
+Este projeto combina consumo de dados externos com uma interface rica. As principais tecnologias foram:
+
+* [React Native](https://reactnative.dev/) (Framework principal)
+* [Firebase Auth](https://firebase.google.com/docs/auth) (Gerenciamento de Login e Cadastro)
+* [Axios](https://axios-http.com/) (Requisições HTTP à API do MCU)
+* [React Navigation](https://reactnavigation.org/) (Navegação Stack e Bottom Tabs)
+* [Vector Icons](https://github.com/oblador/react-native-vector-icons) (Ícones Feather)
+
+## Dependências e Versões Necessárias
+
+Para rodar este projeto, você precisará do ambiente React Native configurado.
+
+* Node.js
+* Android Studio (Para emulador Android)
+* Conta no Firebase (Para configurar a autenticação)
+* API: O projeto consome a [MCU API](https://mcuapi.up.railway.app/api/v1/movies)
+
+## Como rodar o projeto ✅
+
+1. Clone o repositório e instale as dependências:
+
+```bash
+git clone https://github.com/cesarbarts/SuperKnowAppRN.git
+cd SuperKnowAppRN
+npm install
+# ou
+yarn install
 ```
 
-## Step 2: Build and run your app
+2. **Configuração do Firebase:**
+   * Crie um projeto no Console do Firebase.
+   * Adicione o app Android e baixe o `google-services.json` para a pasta `android/app/`.
+   * Ative o método de autenticação por **Email/Senha**.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+3. Para rodar no Android:
 
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+npx react-native run-android
 ```
 
-### iOS
+4. Para rodar no iOS (apenas Mac):
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+cd ios && pod install && cd ..
+npx react-native run-ios
 ```
 
-Then, and every time you update your native dependencies, run:
+## Como rodar os testes
 
-```sh
-bundle exec pod install
+```bash
+npm test
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## 📌 Funcionalidades Detalhadas 📌
 
-```sh
-# Using npm
-npm run ios
+* **Sistema de Login Completo:** Cadastro e autenticação persistente (o app lembra do usuário logado mesmo ao fechar) utilizando Firebase.
+* **Catálogo de Filmes:** Listagem dinâmica consumindo a API, com imagens de capa e títulos.
+* **Detalhes em Modal:** Ao clicar em um filme, um Modal animado exibe a sinopse, duração, data de lançamento e saga, sem perder o contexto da lista.
+* **Tema Dark/Gold:** Estilização manual (`StyleSheet`) focada em contraste e identidade visual única.
+* **Navegação Híbrida:** Uso de `Stack Navigator` para o fluxo de entrada e `Tab Navigator` para a área logada.
 
-# OR using Yarn
-yarn ios
-```
+## ⚠️ Problemas enfrentados
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+Durante a construção do SuperKnow, lidei com desafios de integração e UI.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Problema 1: Exibição de Detalhes sem Navegar
+Eu queria que o usuário visse os detalhes do filme rapidamente, sem ter que carregar uma nova tela inteira e depois voltar.
+* **Como solucionar:** Utilizei o componente `Modal` do React Native com fundo transparente (`transparent={true}`). Isso permitiu criar uma sobreposição visual elegante, onde o usuário mantém a referência da lista ao fundo enquanto lê os dados do filme.
 
-## Step 3: Modify your app
+### Problema 2: Gerenciamento de Sessão do Usuário
+Havia dificuldade em saber quando renderizar a tela de Login ou a Home, causando "piscas" na tela ou redirecionamentos errados.
+* **Como solucionar:** Implementei o hook `useEffect` no `App.tsx` escutando o método `onAuthStateChanged` do Firebase. Também utilizei um estado de renderização condicional: se `user` existe, renderiza a Home; se não, o Login.
 
-Now that you have successfully run the app, let's make changes!
+## ⏭️ Próximos passos
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+Futuras atualizações para o SuperKnow:
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+1. **Favoritos:** Permitir que o usuário salve seus filmes preferidos no Firestore.
+2. **Busca:** Adicionar uma barra de pesquisa para filtrar filmes pelo título.
+3. **Trailers:** Integrar com o YouTube para exibir o trailer dentro do modal.
